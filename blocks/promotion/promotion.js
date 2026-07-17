@@ -20,7 +20,7 @@ const DEFAULT_AT_PROPERTY = '549d426b-0bcc-be60-ce27-b9923bfcad4f';
 const DEFAULT_ATJS_PATH = '/scripts/at-lsig.js';
 
 const CF_CONFIG = {
-  WRAPPER_SERVICE_URL: 'https://3635370-refdemoapigateway-stage.adobeioruntime.net/api/v1/web/ref-demo-api-gateway/fetch-cf',
+  WRAPPER_SERVICE_URL: 'https://675172-referencedemopartner-stage.adobeioruntime.net/api/v1/web/ref-demo-api-gateway/fetch-cf',
   GRAPHQL_QUERY: '/graphql/execute.json/ref-demo-eds/CTAByPath',
 };
 
