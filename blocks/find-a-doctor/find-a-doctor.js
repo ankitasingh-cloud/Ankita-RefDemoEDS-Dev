@@ -7,7 +7,7 @@ import { getHostname } from '../../scripts/utils.js';
 const GRAPHQL_DOCTORS_BY_FOLDER_QUERY = '/graphql/execute.json/ref-demo-eds/GetDoctorsFromFolder';
 
  const CONFIG = {
-    WRAPPER_SERVICE_URL: 'https://3635370-refdemoapigateway-stage.adobeioruntime.net/api/v1/web/ref-demo-api-gateway/fetch-cf'
+    WRAPPER_SERVICE_URL: 'https://675172-referencedemopartner-stage.adobeioruntime.net/api/v1/web/ref-demo-api-gateway/fetch-cf'
   };
 
 function isAuthorEnvironmentSimple() {
