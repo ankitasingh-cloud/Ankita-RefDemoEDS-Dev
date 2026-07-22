@@ -37,6 +37,9 @@
       "embed-adaptive-form",
       "find-a-doctor",
       "create-account"
+      "sign-in"
+      "confirmation"
+      "checkout"
     ]
   },
   {
