@@ -37,6 +37,10 @@
       "embed-adaptive-form",
       "find-a-doctor",
       "fragment-list"
+      "create-account"
+      "sign-in"
+      "confirmation"
+      "checkout"
     ]
   },
   {
