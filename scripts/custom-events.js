@@ -1,8 +1,3 @@
-// ==========================================
-// Custom Events for Launch
-// dispatchCustomEvent(eventName) lets blocks fire custom events; events are queued until Launch is ready.
-// ==========================================
-
 const LAUNCH_QUEUE_STORAGE_KEY = 'project_launch_event_queue';
 const LAUNCH_QUEUE_TTL_MS = 30 * 60 * 1000;
 const LAUNCH_QUEUE_MAX_EVENTS = 100;
@@ -75,7 +70,6 @@ function enqueueLaunchEvent(name, dataLayerSnapshot) {
   writeLaunchQueue(trimmedQueue);
   console.debug('[Launch queue] Queued event:', name, '| queue size:', trimmedQueue.length);
 }
-
 
 export function flushQueuedLaunchEvents() {
   if (!isLaunchReady()) return 0;

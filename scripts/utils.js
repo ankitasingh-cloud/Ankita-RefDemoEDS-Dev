@@ -509,7 +509,6 @@ export function dynamicMediaAssetProcess(pictureElement, qParam) {
     });
   }
 }
-
 /**
  * Resolves an image URL from a Content Fragment image field.
  * Handles:
@@ -560,7 +559,6 @@ export function resolveImageUrl(imageField, isAuthorEnv = false) {
   if (imageField.repositoryId && imageField.assetId) {
     const repositoryId = (imageField.repositoryId || '').trim();
     const assetId = (imageField.assetId || '').trim();
-    // const fileName = assetId.split('/').pop() || '';
     const fileName = 'asset.png';
 
     if (!repositoryId || !assetId || !fileName) return '';
@@ -572,6 +570,7 @@ export function resolveImageUrl(imageField, isAuthorEnv = false) {
     return `${host}/adobe/dynamicmedia/deliver/${assetId}/${fileName}`;
   }
 
+  // eslint-disable-next-line no-underscore-dangle
   if (imageField._dynamicUrl || imageField._publishUrl || imageField._authorUrl) {
     if (isAuthorEnv) {
       // eslint-disable-next-line no-underscore-dangle
