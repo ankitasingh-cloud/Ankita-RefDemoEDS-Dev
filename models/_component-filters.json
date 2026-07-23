@@ -60,6 +60,7 @@
     "id": "column",
     "components": [
       "button",
+      "action-button",
       "dm-asset",
       "dm-template",
       "image",
