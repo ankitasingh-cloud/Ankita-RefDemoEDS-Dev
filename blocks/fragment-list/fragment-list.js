@@ -213,14 +213,27 @@ async function fetchFragmentData(config) {
   }
 
   const openAPIResult = await fetchViaOpenAPI(contentFragmentFolder, modelName);
-  if (openAPIResult !== null) {
-    // Open API responded (200) — use its result (could be empty array)
+  if (openAPIResult !== null && openAPIResult.length > 0) {
+    // Open API returned data — use it
     return openAPIResult;
   }
 
-  // Fallback to GraphQL
-  console.log('Falling back to GraphQL approach');
-  return fetchViaGraphQL(contentFragmentFolder);
+  // Fallback to GraphQL when Open API is unavailable (null) or returned empty results
+  if (openAPIResult !== null) {
+    console.log('Open API returned empty results, falling back to GraphQL');
+  } else {
+    console.log('Open API not available, falling back to GraphQL');
+  }
+
+  const graphQLResult = await fetchViaGraphQL(contentFragmentFolder);
+
+  // If GraphQL also returns empty but Open API had a valid (empty) response,
+  // return Open API result to preserve its authority when both are empty
+  if (graphQLResult.length === 0 && openAPIResult !== null) {
+    return openAPIResult;
+  }
+
+  return graphQLResult;
 }
 
 // --- Transformers ---
