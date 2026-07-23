@@ -35,7 +35,13 @@
       "text",
       "title",
       "title-block",
-      "video"
+      "video",
+      "flights"
+      "fragment-list"
+      "create-account"
+      "sign-in"
+      "confirmation"
+      "checkout"
     ]
   },
   {
@@ -54,6 +60,7 @@
     "id": "column",
     "components": [
       "button",
+      "action-button",
       "dm-asset",
       "dm-template",
       "image",
