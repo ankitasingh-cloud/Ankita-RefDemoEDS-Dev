@@ -35,7 +35,13 @@
       "form",
       "forex",
       "embed-adaptive-form",
-      "find-a-doctor"
+      "find-a-doctor",
+      "flights"
+      "fragment-list"
+      "create-account"
+      "sign-in"
+      "confirmation"
+      "checkout"
     ]
   },
   {
