@@ -226,7 +226,7 @@ async function fetchFragmentData(config) {
 // --- Transformers ---
 
 function transformOpenAPIItem(item, isAuthorEnv) {
-  const imageUrl = resolveImageUrl(item?.image, isAuthorEnv);
+  const imageUrl = resolveImageUrl(item?.images, isAuthorEnv);
 
   const tags = Array.isArray(item?.tags)
     ? item.tags.map(extractTagLabel).filter(Boolean)
@@ -283,7 +283,7 @@ function transformExternalAPIItem(item) {
     subtext: item?.subtext || item?.description || '',
     subtextHtml: item?.subtextHtml || '',
     tags,
-    image: item?.image || item?.imageUrl || '',
+    image: item?.images || item?.imageUrl || '',
     enabled: item?.enabled !== false && item?.enabled !== 'false',
     ctaText: item?.ctaText || item?.ctaLabel || '',
     ctaLink: item?.ctaLink || item?.ctaUrl || item?.url || '',
