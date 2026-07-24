@@ -1,14 +1,22 @@
 {
   "mappings": [
-    "/content/frescopa-demo1/language-masters/en:/",
-    "/content/frescopa-demo1/language-masters/en/:/en/",
-    "/content/frescopa-demo1/configuration:/.helix/config.json",
-    "/content/frescopa-demo1/metadata:/metadata.json",
-    "/content/frescopa-demo1/redirects:/redirects.json",
-    "/content/frescopa-demo1/placeholders:/placeholders.json"
+    "/content/wknd-universal/language-masters/en:/",
+    "/content/wknd-universal/language-masters/en/:/en/",
+    "/content/wknd-universal/language-masters/fr/:/fr/",
+    "/content/wknd-universal/language-masters/fr:/fr",
+    "/content/wknd-universal/language-masters/es/:/es/",
+    "/content/wknd-universal/language-masters/es:/es",
+    "/content/wknd-universal/language-masters/ja/:/ja/",
+    "/content/wknd-universal/language-masters/ja:/ja",
+    "/content/wknd-universal/language-masters/de/:/de/",
+    "/content/wknd-universal/language-masters/de:/de",
+    "/content/wknd-universal/configuration:/.helix/config.json",
+    "/content/wknd-universal/metadata:/metadata.json",
+    "/content/wknd-universal/redirects:/redirects.json",
+    "/content/wknd-universal/placeholders:/placeholders.json"
   ],
   "includes": [
-    "/content/frescopa-demo1/",
-    "/content/dam/frescopa-demo1/"
+    "/content/wknd-universal/",
+    "/content/dam/wknd-universal/"
   ]
 }

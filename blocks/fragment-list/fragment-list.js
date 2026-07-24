@@ -283,7 +283,7 @@ function transformExternalAPIItem(item) {
     subtext: item?.subtext || item?.description || '',
     subtextHtml: item?.subtextHtml || '',
     tags,
-    image: item?.image || item?.imageUrl || '',
+    image: item?.images || item?.imageUrl || '',
     enabled: item?.enabled !== false && item?.enabled !== 'false',
     ctaText: item?.ctaText || item?.ctaLabel || '',
     ctaLink: item?.ctaLink || item?.ctaUrl || item?.url || '',
