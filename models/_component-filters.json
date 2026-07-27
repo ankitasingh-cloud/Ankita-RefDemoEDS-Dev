@@ -36,12 +36,13 @@
       "title",
       "title-block",
       "video",
-      "flights"
-      "fragment-list"
-      "create-account"
-      "sign-in"
-      "confirmation"
-      "checkout"
+      "flights",
+      "fragment-list",
+      "create-account",
+      "sign-in",
+      "confirmation",
+      "checkout",
+      "join-us"
     ]
   },
   {
