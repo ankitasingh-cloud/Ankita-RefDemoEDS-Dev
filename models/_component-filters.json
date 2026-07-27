@@ -36,11 +36,11 @@
       "title",
       "title-block",
       "video",
-      "flights"
-      "fragment-list"
-      "create-account"
-      "sign-in"
-      "confirmation"
+      "flights",
+      "fragment-list",
+      "create-account",
+      "sign-in",
+      "confirmation",
       "checkout"
     ]
   },
@@ -60,6 +60,7 @@
     "id": "column",
     "components": [
       "button",
+      "action-button",
       "dm-asset",
       "dm-template",
       "image",
