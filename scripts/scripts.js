@@ -255,45 +255,30 @@ const experimentationConfig = {
   }
   
   /**
-   * Create section background image from data-bgimage attribute
-   *
-   * @param {Element} doc
-   */
-  function decorateSectionImages(doc) {
-    const sections = doc.querySelectorAll('main .section[data-bgimage]');
-    sections.forEach((section) => {
-      const bgImageUrl = section.dataset.bgimage;
-      if (!bgImageUrl) return;
-
-      section.classList.add('section-has-bg');
-
-      const picEl = document.createElement('picture');
-      picEl.className = 'section-bg';
-
-      const imgEl = document.createElement('img');
-      imgEl.src = bgImageUrl;
-      imgEl.alt = '';
-      imgEl.className = 'sec-img';
-      imgEl.loading = 'lazy';
-
-      picEl.appendChild(imgEl);
-      section.prepend(picEl);
-    });
-  }
-
-  /**
    * Loads everything that doesn't need to be delayed.
    * @param {Element} doc The container element
    */
   async function loadLazy(doc) {
 		const main = doc.querySelector('main');
 		await loadSections(main);
-		try {
-		  decorateSectionImages(doc);
-		} catch (e) {
-		  // eslint-disable-next-line no-console
-		  console.error('Error decorating section images:', e);
-		}
+
+		// Decorate section background images
+		main.querySelectorAll('.section[data-bgimage]').forEach((section) => {
+		  const bgUrl = section.dataset.bgimage;
+		  if (bgUrl) {
+			section.classList.add('section-has-bg');
+			const picEl = document.createElement('picture');
+			picEl.className = 'section-bg';
+			const imgEl = document.createElement('img');
+			imgEl.src = bgUrl;
+			imgEl.alt = '';
+			imgEl.className = 'sec-img';
+			imgEl.loading = 'lazy';
+			picEl.appendChild(imgEl);
+			section.prepend(picEl);
+		  }
+		});
+
 		const { hash } = window.location;
 		const element = hash ? doc.getElementById(hash.substring(1)) : false;
 		if (hash && element) element.scrollIntoView();
