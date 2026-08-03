@@ -363,15 +363,7 @@
         "component": "boolean",
         "valueType": "boolean",
         "name": "sec-full-width",
-        "label": "Full section width.",
-        "condition": {
-          "!=": [
-            {
-              "var": "style"
-            },
-            "bg-image"
-          ]
-        }
+        "label": "Full section width."
       }
     ]
   },
