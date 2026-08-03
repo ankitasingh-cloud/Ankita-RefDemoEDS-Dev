@@ -267,17 +267,17 @@ const experimentationConfig = {
 
       section.classList.add('section-has-bg');
 
-      const picture = document.createElement('picture');
-      picture.className = 'section-bg';
+      const picEl = document.createElement('picture');
+      picEl.className = 'section-bg';
 
-      const img = document.createElement('img');
-      img.src = bgImageUrl;
-      img.alt = '';
-      img.className = 'sec-img';
-      img.loading = 'lazy';
+      const imgEl = document.createElement('img');
+      imgEl.src = bgImageUrl;
+      imgEl.alt = '';
+      imgEl.className = 'sec-img';
+      imgEl.loading = 'lazy';
 
-      picture.appendChild(img);
-      section.prepend(picture);
+      picEl.appendChild(imgEl);
+      section.prepend(picEl);
     });
   }
 
@@ -288,11 +288,15 @@ const experimentationConfig = {
   async function loadLazy(doc) {
 		const main = doc.querySelector('main');
 		await loadSections(main);
-		decorateSectionImages(doc);
+		try {
+		  decorateSectionImages(doc);
+		} catch (e) {
+		  // eslint-disable-next-line no-console
+		  console.error('Error decorating section images:', e);
+		}
 		const { hash } = window.location;
 		const element = hash ? doc.getElementById(hash.substring(1)) : false;
 		if (hash && element) element.scrollIntoView();
-		//decorateSectionImages(doc);
 		loadHeader(doc.querySelector('header'));
 		loadFooter(doc.querySelector('footer'));
 	  
