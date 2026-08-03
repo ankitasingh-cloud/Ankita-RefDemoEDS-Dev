@@ -343,8 +343,28 @@
           {
             "name": "Light Color",
             "value": "bg-light"
+          },
+          {
+            "name": "Image",
+            "value": "bg-image"
           }         
         ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "bgimage",
+        "label": "Background Image",
+        "description": "Select a DAM asset to use as the section background image.",
+        "multi": false,
+        "condition": {
+          "===": [
+            {
+              "var": "style"
+            },
+            "bg-image"
+          ]
+        }
       },
       {
         "component": "boolean",

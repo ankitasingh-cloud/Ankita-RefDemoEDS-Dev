@@ -255,49 +255,32 @@ const experimentationConfig = {
   }
   
   /**
-   * Create section background image
+   * Create section background image from data-bgimage attribute
    *
-   * @param {*} doc
+   * @param {Element} doc
    */
-  // function decorateSectionImages(doc) {
-  //   const sectionImgContainers = doc.querySelectorAll('main .section[data-image]');
-  //   sectionImgContainers.forEach((sectionImgContainer) => {
-  //     const sectionImg = sectionImgContainer.dataset.image;
-  //     const sectionTabImg = sectionImgContainer.dataset.tabImage;
-  //     const sectionMobImg = sectionImgContainer.dataset.mobImage;
-  //     let defaultImgUrl = null;
-  
-  //     const newPic = document.createElement('picture');
-  //     if (sectionImg) {
-  //       newPic.appendChild(createSource(sectionImg, 1920, '(min-width: 1024px)'));
-  //       defaultImgUrl = sectionImg;
-  //     }
-  
-  //     if (sectionTabImg) {
-  //       newPic.appendChild(createSource(sectionTabImg, 1024, '(min-width: 768px)'));
-  //       defaultImgUrl = sectionTabImg;
-  //     }
-  
-  //     if (sectionMobImg) {
-  //       newPic.appendChild(createSource(sectionTabImg, 600, '(max-width: 767px)'));
-  //       defaultImgUrl = sectionMobImg;
-  //     }
-  
-  //     const newImg = document.createElement('img');
-  //     newImg.src = defaultImgUrl;
-  //     newImg.alt = '';
-  //     newImg.className = 'sec-img';
-  //     newImg.loading = 'lazy';
-  //     newImg.width = '768';
-  //     newImg.height = '100%';
-  
-  //     if (defaultImgUrl) {
-  //       newPic.appendChild(newImg);
-  //       sectionImgContainer.prepend(newPic);
-  //     }
-  //   });
-  // }
-  
+  function decorateSectionImages(doc) {
+    const sections = doc.querySelectorAll('main .section[data-bgimage]');
+    sections.forEach((section) => {
+      const bgImageUrl = section.dataset.bgimage;
+      if (!bgImageUrl) return;
+
+      section.classList.add('section-has-bg');
+
+      const picture = document.createElement('picture');
+      picture.className = 'section-bg';
+
+      const img = document.createElement('img');
+      img.src = bgImageUrl;
+      img.alt = '';
+      img.className = 'sec-img';
+      img.loading = 'lazy';
+
+      picture.appendChild(img);
+      section.prepend(picture);
+    });
+  }
+
   /**
    * Loads everything that doesn't need to be delayed.
    * @param {Element} doc The container element
@@ -305,7 +288,7 @@ const experimentationConfig = {
   async function loadLazy(doc) {
 		const main = doc.querySelector('main');
 		await loadSections(main);
-		//decorateSectionImages(doc);
+		decorateSectionImages(doc);
 		const { hash } = window.location;
 		const element = hash ? doc.getElementById(hash.substring(1)) : false;
 		if (hash && element) element.scrollIntoView();
