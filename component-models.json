@@ -358,7 +358,7 @@
         "description": "Select a DAM asset to use as the section background image.",
         "multi": false,
         "condition": {
-          "===": [
+          "==": [
             {
               "var": "style"
             },
