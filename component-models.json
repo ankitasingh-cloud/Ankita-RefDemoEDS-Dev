@@ -351,20 +351,13 @@
         ]
       },
       {
-        "component": "reference",
+        "component": "aem-content",
         "valueType": "string",
         "name": "bgimage",
         "label": "Background Image",
         "description": "Select a DAM asset to use as the section background image.",
-        "multi": false,
-        "condition": {
-          "==": [
-            {
-              "var": "style"
-            },
-            "bg-image"
-          ]
-        }
+        "validation": { "rootPath": "/content/dam" },
+        "condition": { "==": [{ "var": "style" }, "bg-image"] }
       },
       {
         "component": "boolean",
