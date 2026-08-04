@@ -3,6 +3,7 @@ import { readBlockConfig } from '../../scripts/aem.js';
 import { normalizeAemPath } from '../../scripts/scripts.js';
 import { fetchButtonDataSheet } from '../../scripts/form-data-layer.js';
 import { getLanguage } from '../../scripts/utils.js';
+
 /**
  * Checkout block – consolidates selected flights from the flights block and shows Trip Summary.
  * Selected flights are stored in localStorage (project_selected_flights)
