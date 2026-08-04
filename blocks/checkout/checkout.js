@@ -1,6 +1,6 @@
 import { dispatchCustomEvent } from '../../scripts/custom-events.js';
 import { readBlockConfig } from '../../scripts/aem.js';
-import { normalizeAemPath } from '../../scripts/scripts.js';
+import { isAuthorEnvironment, normalizeAemPath } from '../../scripts/scripts.js';
 import { fetchButtonDataSheet } from '../../scripts/form-data-layer.js';
 import { getLanguage } from '../../scripts/utils.js';
 
@@ -21,7 +21,7 @@ const LIVE_CONFIRMATION_PATH = `/${lang}/confirmation`;
 function getConfirmationPath(authoredPath) {
   if (authoredPath) return normalizeAemPath(authoredPath);
   if (typeof window === 'undefined') return LIVE_CONFIRMATION_PATH;
-  const isAuthor = window.location.hostname.includes('author') || window.location.hostname.includes('adobeaemcloud');
+  const isAuthor = isAuthorEnvironment();
   if (isAuthor) {
     const { pathname } = window.location;
     const enIndex = pathname.indexOf(`/${lang}/`);
