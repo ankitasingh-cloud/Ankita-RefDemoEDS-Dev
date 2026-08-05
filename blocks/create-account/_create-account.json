@@ -33,16 +33,16 @@
               "value": "default"
             },
             {
-              "name": "Extended Preferences",
-              "value": "extended-preferences"
+              "name": "Luma",
+              "value": "luma"
             },
             {
-              "name": "Compact Contact",
-              "value": "compact-contact"
+              "name": "Frescopa",
+              "value": "frescopa"
             },
             {
-              "name": "Membership",
-              "value": "membership"
+              "name": "WKND Fly",
+              "value": "wknd-fly"
             }
           ]
         },

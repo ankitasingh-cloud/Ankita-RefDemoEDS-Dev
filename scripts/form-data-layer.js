@@ -38,7 +38,7 @@ export const DEFAULT_FORM_FIELD_MAP = {
   country: 'homeAddress.country',
   dateOfBirth: 'person.birthDate',
   isMember: 'person.isMember',
-  membershipMember: 'person.membershipMember',
+  wkndFlyMember: 'person.wkndFlyMember',
   emailComm: 'consents.marketing.email.val',
   prefEmail: 'consents.marketing.email.val',
   prefPhone: 'consents.marketing.call.val',
