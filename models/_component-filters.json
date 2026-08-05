@@ -36,9 +36,9 @@
       "title",
       "title-block",
       "video",
-      "create-account"
-      "sign-in"
-      "confirmation"
+      "create-account",
+      "sign-in",
+      "confirmation",
       "checkout"
     ]
   },
