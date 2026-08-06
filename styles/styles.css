@@ -400,6 +400,11 @@ header {
   z-index: 111;
 }
 
+/* Fixed header: content does not overlap the header */
+body.fixed-header main {
+  margin-top: var(--nav-height, 90px);
+}
+
 header .header,
 footer .footer {
   visibility: hidden;

@@ -235,6 +235,10 @@ const experimentationConfig = {
   async function loadEager(doc) {
 		setPageLanguage();
 		decorateTemplateAndTheme();
+		const headerStyle = getMetadata('headerstyle');
+		if (headerStyle) {
+		  document.body.classList.add(headerStyle);
+		}
 		await runExperimentation(doc, experimentationConfig);
 		renderWBDataLayer();
 		const main = doc.querySelector('main');

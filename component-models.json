@@ -63,6 +63,22 @@
           ]
       },
       {
+          "component": "select",
+          "name": "headerStyle",
+          "label": "Header Style",
+          "description": "Fixed: header stays at top and content does not overlap. Floating: header overlaps the content below.",
+          "options": [
+            {
+              "name": "Floating",
+              "value": ""
+            },
+            {
+              "name": "Fixed",
+              "value": "fixed-header"
+            }
+          ]
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "js-files",
