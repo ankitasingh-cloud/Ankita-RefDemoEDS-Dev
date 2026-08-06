@@ -6,6 +6,13 @@ header .nav-wrapper {
   position: fixed;
 }
 
+/* Page property "Push Content Below Header" toggle: header takes up its own
+   space in normal flow so following content starts after it, instead of the
+   default overlay behavior above. */
+body.static-header header .nav-wrapper {
+  position: static;
+}
+
 header nav {
   box-sizing: border-box;
   display: grid;
