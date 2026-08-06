@@ -402,7 +402,7 @@ header {
 
 /* Fixed header: content does not overlap the header */
 body.fixed-header main {
-  margin-top: var(--nav-height, 90px);
+  margin-top: 90px;
 }
 
 header .header,
