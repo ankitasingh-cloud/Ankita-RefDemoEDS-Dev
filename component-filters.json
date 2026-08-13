@@ -41,7 +41,9 @@
       "create-account",
       "sign-in",
       "confirmation",
-      "checkout"
+      "checkout",
+      "join-us",
+      "flight-search"
     ]
   },
   {
