@@ -42,6 +42,10 @@
       "sign-in",
       "confirmation",
       "checkout"
+      "create-account",
+      "fragment-list",
+      "flights",
+      "join-us"
     ]
   },
   {
