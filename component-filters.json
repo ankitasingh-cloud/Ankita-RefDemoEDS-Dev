@@ -36,6 +36,12 @@
       "forex",
       "embed-adaptive-form",
       "find-a-doctor",
+      "flights",
+      "fragment-list",
+      "create-account",
+      "sign-in",
+      "confirmation",
+      "checkout"
       "create-account",
       "fragment-list",
       "flights",
@@ -70,6 +76,7 @@
     "id": "column",
     "components": [
       "button",
+      "action-button",
       "image",
       "text",
       "title",

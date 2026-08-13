@@ -246,7 +246,7 @@ const experimentationConfig = {
   }
   
   /**
-   * Loads everything needed to get to LCP.
+   * Loads  everything needed to get to LCP.
    * @param {Element} doc The container element
    */
   async function loadEager(doc) {
