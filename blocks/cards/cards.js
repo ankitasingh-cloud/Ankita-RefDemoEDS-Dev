@@ -2,11 +2,20 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
+  // Read layout from the first card row (field index 5)
+  const firstRow = block.children[0];
+  const layoutDiv = firstRow?.children[5];
+  const layout = layoutDiv?.querySelector('p')?.textContent?.trim()
+    || layoutDiv?.textContent?.trim() || 'default';
+  if (layout !== 'default') {
+    block.classList.add(layout);
+  }
+
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
 
-    // Field order (by model): 0=image, 1=text, 2=ctalabel, 3=ctalink, 4=ctastyle
+    // Field order (by model): 0=image, 1=text, 2=ctalabel, 3=ctalink, 4=ctastyle, 5=layout
     const ctaLabelDiv = row.children[2];
     const ctaLabel = ctaLabelDiv?.querySelector('p')?.textContent?.trim()
       || ctaLabelDiv?.textContent?.trim() || '';
