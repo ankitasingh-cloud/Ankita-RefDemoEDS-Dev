@@ -208,6 +208,42 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctalabel",
+        "label": "CTA Button Label",
+        "description": "Text shown on the call-to-action button. Leave empty to hide the button.",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "ctalink",
+        "label": "CTA Button Link",
+        "description": "Target page or URL for the call-to-action button."
+      },
+      {
+        "component": "select",
+        "name": "ctastyle",
+        "label": "CTA Style",
+        "valueType": "string",
+        "value": "button",
+        "options": [
+          {
+            "name": "Primary Button",
+            "value": "button"
+          },
+          {
+            "name": "Secondary Button",
+            "value": "button-secondary"
+          },
+          {
+            "name": "Dark Button",
+            "value": "button-dark"
+          }
+        ]
       }
     ]
   },
@@ -656,6 +692,131 @@
       }
     ]
   },
+  {
+    "id": "flights",
+    "fields": [
+      {
+        "component": "aem-content-fragment",
+        "name": "flightdropdowncontentfragment",
+        "label": "Flight Dropdown Content Fragment",
+        "description": "Select the CF containing the flight dropdown content fragment",
+        "valueType": "string",
+        "validation": {
+          "rootPath": "/content/dam"
+        }
+      },
+      {
+        "component": "aem-content-fragment",
+        "name": "flightlistcontentfragment",
+        "label": "Flight List Content Fragment",
+        "description": "Select the CF containing the flight list content",
+        "valueType": "string",
+        "validation": {
+          "rootPath": "/content/dam"
+        }
+      },
+      {
+        "component": "text",
+        "name": "buttoneventtype",
+        "label": "Button Event Type",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "checkoutpath",
+        "label": "Checkout Page Path",
+        "description": "Page to redirect to when user clicks Book Now. Defaults to /en/checkout if not set."
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+      "id": "action-button",
+      "fields": [
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "link",
+          "label": "Link",
+          "multi": false,
+          "validation": {
+            "rootPath": "/content"
+          }
+        },
+        {
+          "component": "text",
+          "name": "label",
+          "value": "Button",
+          "label": "Label",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "title",
+          "value": "Button",
+          "label": "Title",
+          "valueType": "string"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "style",
+          "value": "default-button",
+          "label": "Style",
+          "options": [
+            {
+              "name": "Default",
+              "value": "default-button"
+            },
+            {
+              "name": "Link",
+              "value": "default-button-link"
+            },
+            {
+              "name": "Link (Light / On dark)",
+              "value": "default-button-link-light"
+            },
+            {
+              "name": "Secondary Button",
+              "value": "default-button-secondary"
+            },
+            {
+              "name": "Dark Button",
+              "value": "default-button-dark"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "alignment",
+          "label": "Alignment",
+          "value": "",
+          "options": [
+            { "name": "Left (default)", "value": "" },
+            { "name": "Center", "value": "btn-align-center" },
+            { "name": "Right", "value": "btn-align-right" }
+          ]
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "icon",
+          "label": "Icon Image",
+          "description": "Optional small image shown before the button label.",
+          "multi": false
+        }
+      ]
+    }
   {
     "...": "../blocks/*/_*.json#/models"
   }
