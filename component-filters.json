@@ -42,7 +42,8 @@
       "sign-in",
       "confirmation",
       "checkout",
-      "flight-search"
+      "flight-search",
+      "join-us"
     ]
   },
   {
@@ -73,6 +74,7 @@
     "id": "column",
     "components": [
       "button",
+      "action-button",
       "image",
       "text",
       "title",
