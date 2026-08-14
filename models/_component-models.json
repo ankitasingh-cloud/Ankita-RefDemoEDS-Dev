@@ -827,7 +827,7 @@
           "multi": false
         }
       ]
-    }
+    },
   {
     "...": "../blocks/*/_*.json#/models"
   }
