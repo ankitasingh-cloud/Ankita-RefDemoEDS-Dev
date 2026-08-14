@@ -12,7 +12,7 @@ const PUBLISH_GRAPHQL_BASE_For_Destination = 'https://675172-referencedemopartne
 
 const AUTHOR_GRAPHQL_BASE_For_Dropdown = '/graphql/execute.json/ref-demo-eds/flight-source-dropdown';
 const PUBLISH_GRAPHQL_BASE_For_Dropdown = 'https://675172-referencedemopartner-stage.adobeioruntime.net/api/v1/web/dx-excshell-1/flight-source-dropdown';
-const DEFAULT_FLIGHT_LIST_CONTENT_FRAGMENT_PATH = '/content/dam/ref-demo-eds/en/fragments/flight-details';
+const DEFAULT_FLIGHT_LIST_CONTENT_FRAGMENT_PATH = '/content/dam/wkndfly-template/en/fragments/flight-details';
 
 const selectButtonDataAttributes = {};
 let flightListPathForGraphQL = DEFAULT_FLIGHT_LIST_CONTENT_FRAGMENT_PATH;
