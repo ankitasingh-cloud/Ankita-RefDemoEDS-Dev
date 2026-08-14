@@ -149,10 +149,10 @@ async function fetchAirportsFromGraphQL(contentFragmentPath) {
     const airports = extractAirportsFromDropdownPayload(payload);
     const seenCodes = new Set();
     return airports.filter((airport) => {
-      if (!airport || seenCodes.has(airport.code)) return false;
-      seenCodes.add(airport.code);
-      return true;
-    });
+        if (!airport || seenCodes.has(airport.code)) return false;
+        seenCodes.add(airport.code);
+        return true;
+      });
   } catch (e) {
     console.warn('Airport dropdown GraphQL fetch failed:', e);
     return [];
@@ -164,7 +164,7 @@ function createAirportDropdown(airports, selectedCode, placeholder, id) {
   const container = createElement('div', 'flight-input-group');
   const label = createElement('label', '', placeholder);
   label.setAttribute('for', id);
-
+  
   const inputContainer = createElement('div', 'flight-input-container');
   const input = createElement('input', 'flight-input');
   input.type = 'text';
@@ -173,10 +173,10 @@ function createAirportDropdown(airports, selectedCode, placeholder, id) {
   input.value = selectedCode || '';
   input.readOnly = true;
   input.setAttribute('aria-label', placeholder);
-
+  
   const dropdown = createElement('div', 'airport-dropdown');
   dropdown.style.display = 'none';
-
+  
   airports.forEach((airport) => {
     const option = createElement('div', 'airport-option');
     option.dataset.code = airport.code;
@@ -202,7 +202,7 @@ function createAirportDropdown(airports, selectedCode, placeholder, id) {
     });
     dropdown.appendChild(option);
   });
-
+  
   input.addEventListener('click', (e) => {
     e.stopPropagation();
     const allDropdowns = document.querySelectorAll('.airport-dropdown');
@@ -215,12 +215,12 @@ function createAirportDropdown(airports, selectedCode, placeholder, id) {
     dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
     inputContainer.classList.toggle('open');
   });
-
+  
   inputContainer.appendChild(input);
   inputContainer.appendChild(dropdown);
   container.appendChild(label);
   container.appendChild(inputContainer);
-
+  
   return container;
 }
 
@@ -229,7 +229,7 @@ function createDatePicker(selectedDate, id) {
   const container = createElement('div', 'flight-input-group');
   const label = createElement('label', '', 'Date');
   label.setAttribute('for', id);
-
+  
   const inputContainer = createElement('div', 'flight-input-container');
   const input = createElement('input', 'flight-input');
   input.type = 'date';
@@ -237,11 +237,11 @@ function createDatePicker(selectedDate, id) {
   input.value = selectedDate || '';
   input.min = getTodayDate();
   input.setAttribute('aria-label', 'Date');
-
+  
   inputContainer.appendChild(input);
   container.appendChild(label);
   container.appendChild(inputContainer);
-
+  
   return container;
 }
 
@@ -264,36 +264,36 @@ function createFlightSearchForm(fromDefault = DEFAULT_FROM, toDefault = DEFAULT_
   const form = createElement('form', 'flight-search-form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const { submitter } = e;
+    const submitter = e.submitter;
     if (submitter?.dataset?.buttonEventType) {
       fireButtonCustomEventIfConfigured(submitter);
     }
     handleSearch();
   });
-
+  
   const searchRow = createElement('div', 'flight-search-row');
-
+  
   // From dropdown (default WAW)
   const fromGroup = createAirportDropdown(airportsData, fromDefault, 'From', 'flight-from');
   searchRow.appendChild(fromGroup);
-
+  
   // To dropdown (default TQO)
   const toGroup = createAirportDropdown(airportsData, toDefault, 'To', 'flight-to');
   searchRow.appendChild(toGroup);
-
+  
   // Date picker
   const dateGroup = createDatePicker('', 'flight-date');
   searchRow.appendChild(dateGroup);
-
+  
   // Search button
   const buttonGroup = createElement('div', 'flight-button-group');
   const searchButton = createElement('button', 'flight-search-button', 'Search');
   searchButton.type = 'submit';
   buttonGroup.appendChild(searchButton);
   searchRow.appendChild(buttonGroup);
-
+  
   form.appendChild(searchRow);
-
+  
   // Options row
   const optionsRow = createElement('div', 'flight-options-row');
   const options = [
@@ -301,24 +301,24 @@ function createFlightSearchForm(fromDefault = DEFAULT_FROM, toDefault = DEFAULT_
     { id: 'business-class', label: 'Business Class' },
     { id: 'travelling-children', label: 'Travelling with children' },
   ];
-
+  
   options.forEach((option) => {
     const optionContainer = createElement('div', 'flight-option');
     const checkbox = createElement('input', 'flight-checkbox');
     checkbox.type = 'checkbox';
     checkbox.id = option.id;
     checkbox.name = option.id;
-
+    
     const label = createElement('label', '', option.label);
     label.setAttribute('for', option.id);
-
+    
     optionContainer.appendChild(checkbox);
     optionContainer.appendChild(label);
     optionsRow.appendChild(optionContainer);
   });
-
+  
   form.appendChild(optionsRow);
-
+  
   return form;
 }
 
@@ -327,16 +327,16 @@ function handleSearch() {
   const fromInput = document.getElementById('flight-from');
   const toInput = document.getElementById('flight-to');
   const dateInput = document.getElementById('flight-date');
-
+  
   const from = fromInput?.value?.trim() || '';
   const to = toInput?.value?.trim() || '';
   const date = dateInput?.value || '';
-
+  
   // Build URL with query parameters (from, to, date are optional)
   const isAuthor = isAuthorEnvironment();
   const { pathname } = window.location;
   let flightsPath;
-
+  
   if (isAuthor) {
     // Author environment: /content/wknd-fly/language-masters/en/home.html
     // Get language code from path details and ensure it's in the URL
@@ -344,14 +344,14 @@ function handleSearch() {
     const { langCode } = pathDetails;
     const pathParts = pathname.split('/');
     const langMastersIndex = pathParts.indexOf('language-masters');
-
+    
     if (langMastersIndex !== -1) {
       // Check if language code exists after language-masters
       const expectedLangIndex = langMastersIndex + 1;
-      const hasLanguageCode = pathParts.length > expectedLangIndex
-        && /^[a-z]{2,3}$/i.test(pathParts[expectedLangIndex])
+      const hasLanguageCode = pathParts.length > expectedLangIndex 
+        && /^[a-z]{2,3}$/i.test(pathParts[expectedLangIndex]) 
         && !pathParts[expectedLangIndex].includes('.html');
-
+      
       if (hasLanguageCode) {
         // Path has language: /content/wknd-fly/language-masters/en/home.html
         // Replace last part (e.g., 'home.html') with 'flights.html'
@@ -379,7 +379,7 @@ function handleSearch() {
     // Get path details to extract language and structure
     const pathDetails = getPathDetails();
     const { langCode, prefix } = pathDetails;
-
+    
     if (langCode) {
       // Path has language: /en/home -> /en/flights
       // Or /web/wknd-fly/en/home -> /web/wknd-fly/en/flights
@@ -394,23 +394,24 @@ function handleSearch() {
       const pathParts = pathname.split('/').filter(Boolean);
       if (pathParts.length > 0) {
         pathParts[pathParts.length - 1] = 'flights';
-        flightsPath = `/${pathParts.join('/')}`;
+        flightsPath = '/' + pathParts.join('/');
       } else {
         flightsPath = '/flights';
       }
     }
   }
-
+  
   // Build query string (only include non-empty values)
   const params = new URLSearchParams();
   if (from) params.set('from', from);
   if (to) params.set('to', to);
   if (date) params.set('date', date);
-
+  
   const queryString = params.toString();
   const url = queryString ? `${flightsPath}?${queryString}` : flightsPath;
   setTimeout(() => { window.location.href = url; }, 2000);
 }
+
 
 // Push current flight search form values to datalayer (from, to, date, options)
 function updateFlightSearchDataLayer() {
@@ -469,7 +470,7 @@ function setupClickOutside() {
 }
 
 // Main decorate function
-export default async function decorate(block) { // cache
+export default async function decorate(block) {
   const config = readBlockConfig(block) || {};
   const isAuthor = isAuthorEnvironment();
   /* Hide button config rows (index >= 7) on published/live */
@@ -482,8 +483,8 @@ export default async function decorate(block) { // cache
   block.classList.add('flight-search');
 
   let flightDropdownContentFragmentPath = null;
-  if (config.flightdropdowncontentfragment || config.flightdropdowncontentfragment) {
-    flightDropdownContentFragmentPath = config.flightdropdowncontentfragment ?? config.flightdropdowncontentfragment;
+  if(config.flightdropdowncontentfragment || config['flightdropdowncontentfragment']) {
+    flightDropdownContentFragmentPath = config.flightdropdowncontentfragment ?? config['flightdropdowncontentfragment'];
     flightDropdownContentFragmentPath = normalizeContentFragmentPath(flightDropdownContentFragmentPath, isAuthor);
   }
 
@@ -503,7 +504,7 @@ export default async function decorate(block) { // cache
   const fromParam = urlParams.get('from');
   const toParam = urlParams.get('to');
   const dateParam = urlParams.get('date');
-
+  
   const form = createFlightSearchForm(fromParam || DEFAULT_FROM, toParam || DEFAULT_TO);
   block.appendChild(form);
 
@@ -518,7 +519,7 @@ export default async function decorate(block) { // cache
   setupClickOutside();
   // Update datalayer when user changes From/To dropdowns, date, or option checkboxes
   attachFlightSearchDataLayerUpdates(block);
-
+  
   if (dateParam) {
     const dateInput = document.getElementById('flight-date');
     if (dateInput) dateInput.value = dateParam;
